@@ -1,52 +1,10 @@
-22:37:28 **** Incremental Build of configuration Debug for project PP ****
+23:23:09 **** Incremental Build of configuration Debug for project PP ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
-../Core/Src/main.c:427:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
-  427 |     sprintf(Text,"Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
-      |     ^~~~~~~
-../Core/Src/main.c:427:5: warning: incompatible implicit declaration of built-in function 'sprintf'
-../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-   20 | #include "main.h"
-  +++ |+#include <stdio.h>
-   21 | 
-../Core/Src/main.c:427:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  427 |     sprintf(Text,"Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
-      |             ^~~~
-../Core/Src/main.c:427:13: note: expected 'char *' but argument is of type 'volatile char *'
-../Core/Src/main.c:427:32: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
-  427 |     sprintf(Text,"Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
-      |                               ~^                   ~~~~~~~~~
-      |                                |                   |
-      |                                int                 uint32_t {aka volatile long unsigned int}
-      |                               %ld
-../Core/Src/main.c:427:43: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
-  427 |     sprintf(Text,"Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
-      |                                          ~^                   ~~~~~~~~
-      |                                           |                   |
-      |                                           int                 uint32_t {aka volatile long unsigned int}
-      |                                          %ld
-../Core/Src/main.c:432:32: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  432 |      HAL_UART_Transmit(&huart2,Text,40,1000);
-      |                                ^~~~
-In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
-                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
- 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
-      |                                                                ~~~~~~~~~^~~~~
-arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PP.elf
- 
 arm-none-eabi-size   PP.elf 
-arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
    text	   data	    bss	    dec	    hex	filename
-  22452	    120	   1976	  24548	   5fe4	PP.elf
+  22636	    120	   2000	  24756	   60b4	PP.elf
 Finished building: default.size.stdout
  
-Finished building: PP.list
- 
 
-22:37:29 Build Finished. 0 errors, 6 warnings. (took 549ms)
+23:23:09 Build Finished. 0 errors, 0 warnings. (took 230ms)
 

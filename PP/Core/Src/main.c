@@ -53,13 +53,14 @@ volatile uint32_t DeltaT = 0;
 volatile uint32_t Overflow = 0;
 volatile int Ind = 0;
 volatile int Show = 0;
-volatile char Text[40];
+volatile char Text[60];
 uint32_t Freq_Timer1 = 0;
 uint8_t Input_Pin_1 = 0;
 uint8_t Input_Pin_2 = 0;
 uint8_t Input_Pin_3 = 0;
-uint8_t sum_current = 0;
-uint8_t sum_before = 0;
+uint8_t Sum_Current = 0;
+uint8_t Sum_Before = 0;
+char Note_Musical[4];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -420,12 +421,12 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim){
     Frequency_Local = Frequency;
 
     /* Formatação dos espaços de exibição */
-    sprintf(Text, "Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
+    sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
 
     /* Display com uma velocidade 30 vezes menor para a legibilidade */
     if(Show++ == 30){
       Show = 0;
-	    HAL_UART_Transmit(&huart2, Text, 40, 1000);
+	    HAL_UART_Transmit(&huart2, Text, 60, 1000);
     }
   }
 }
@@ -442,56 +443,64 @@ void Check_Pin(void) {
 	Input_Pin_3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_SET ? 1 : 0;
 
 	/* Calcula a combinação presente nos pinos */
-	sum_current = (Input_Pin_1 << 2) | (Input_Pin_2 << 1) | Input_Pin_3;
+	Sum_Current = (Input_Pin_1 << 2) | (Input_Pin_2 << 1) | Input_Pin_3;
 }
 
 void Config_PWM(void) {
 	/* A partir do valor somado em combinação, será gerado uma frequência para a nota musical */
-	switch (sum_current) {
+	switch (Sum_Current) {
 	    case 0:
 	    	Freq_Timer1 = 0;    // Nulo
+	    	strcpy(Note_Musical, "Null");
 	        break;
 	    case 1:
 	    	Freq_Timer1 = 136;  // Ré
+	    	strcpy(Note_Musical, "Re");
 	        break;
 	    case 2:
 	    	Freq_Timer1 = 182;  // Lá
+	    	strcpy(Note_Musical, "La");
 	        break;
 	    case 3:
 	    	Freq_Timer1 = 81;   // Si
+	    	strcpy(Note_Musical, "Si");
 	        break;
 	    case 4:
 	    	Freq_Timer1 = 243;  // Mi-g
+	    	strcpy(Note_Musical, "Mi-g");
 	        break;
 	    case 5:
 	    	Freq_Timer1 = 61;   // Mi-a
+	    	strcpy(Note_Musical, "Mi-a");
 	        break;
 	    case 6:
 	    	Freq_Timer1 = 102;  // Sol
+	    	strcpy(Note_Musical, "Sol");
 	    	break;
 	    case 7:
 	    	Freq_Timer1 = 0;    // Nulo
+	    	strcpy(Note_Musical, "Null");
 	}
 }
 
 void Check_Frequency(void) {
 	/* Verifica se a frequência é menor do que 42kHz, ou seja, se há a presença da mão. Além disso, verifica se Freq_Timer1 é diferente de zero para emitir um som */
-	if (Frequency_Local < 42000 && sum_current != 0 && Freq_Timer1 != 0) {
+	if (Frequency_Local < 42000 && Sum_Current != 0 && Freq_Timer1 != 0) {
 
 		/* Verifica o estado anterior para saber se a mesma nota musical está sendo requisitada */
-		if(sum_current != sum_before){
-			sum_before = sum_current;
+		if(Sum_Current != Sum_Before){
+			Sum_Before = Sum_Current;
 
-      /* Alteração da frequência do PWM */
+			/* Alteração da frequência do PWM */
 			MX_TIM1_Init();
 		}
 	}
 	else {
-    /* Frequência nula */
+		/* Frequência nula */
 		Freq_Timer1 = 0;
-		sum_before = 0;
+		Sum_Before = 0;
 
-    /* Alteração da frequência do PWM */
+		/* Alteração da frequência do PWM */
 		MX_TIM1_Init();
 	}
 

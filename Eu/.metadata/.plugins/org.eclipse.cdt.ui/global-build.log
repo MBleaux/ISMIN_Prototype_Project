@@ -3033,3 +3033,1443 @@ Finished building: default.size.stdout
  
 Finished building: PP.list
  
+19:57:47 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:423:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  423 |     sprintf(Text, "Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
+      |     ^~~~~~~
+../Core/Src/main.c:423:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:423:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  423 |     sprintf(Text, "Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
+      |             ^~~~
+../Core/Src/main.c:423:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:423:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  423 |     sprintf(Text, "Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
+      |                                ~^                   ~~~~~~~~~
+      |                                 |                   |
+      |                                 int                 uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:423:44: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  423 |     sprintf(Text, "Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
+      |                                           ~^                   ~~~~~~~~
+      |                                            |                   |
+      |                                            int                 uint32_t {aka volatile long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:428:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  428 |      HAL_UART_Transmit(&huart2, Text, 40, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22452	    120	   1976	  24548	   5fe4	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+21:24:16 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-size   PP.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22452	    120	   1976	  24548	   5fe4	PP.elf
+Finished building: default.size.stdout
+ 
+22:20:28 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:423:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  423 |     sprintf("Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
+      |     ^~~~~~~
+../Core/Src/main.c:423:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:423:47: warning: passing argument 2 of 'sprintf' makes pointer from integer without a cast [-Wint-conversion]
+  423 |     sprintf("Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
+      |                                               ^~~~~~~~~
+      |                                               |
+      |                                               uint32_t {aka volatile long unsigned int}
+../Core/Src/main.c:423:47: note: expected 'const char *' but argument is of type 'uint32_t' {aka 'volatile long unsigned int'}
+../Core/Src/main.c:428:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  428 |      HAL_UART_Transmit(&huart2, Text, 40, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22452	    120	   1976	  24548	   5fe4	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+22:23:24 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:423:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  423 |     sprintf(Text, "Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
+      |     ^~~~~~~
+../Core/Src/main.c:423:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:423:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  423 |     sprintf(Text, "Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
+      |             ^~~~
+../Core/Src/main.c:423:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:423:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  423 |     sprintf(Text, "Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
+      |                                ~^                   ~~~~~~~~~
+      |                                 |                   |
+      |                                 int                 uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:423:44: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  423 |     sprintf(Text, "Frequency = %d Hz  C = %d pF\n", Frequency, Capacity);
+      |                                           ~^                   ~~~~~~~~
+      |                                            |                   |
+      |                                            int                 uint32_t {aka volatile long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:428:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  428 |      HAL_UART_Transmit(&huart2, Text, 40, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22452	    120	   1976	  24548	   5fe4	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+22:31:20 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:423:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  423 |     sprintf(Text, "Frequency = %d Hz sum_current = %d C = %d pF\n", Frequency, sum_current, Capacity);
+      |     ^~~~~~~
+../Core/Src/main.c:423:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:423:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  423 |     sprintf(Text, "Frequency = %d Hz sum_current = %d C = %d pF\n", Frequency, sum_current, Capacity);
+      |             ^~~~
+../Core/Src/main.c:423:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:423:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  423 |     sprintf(Text, "Frequency = %d Hz sum_current = %d C = %d pF\n", Frequency, sum_current, Capacity);
+      |                                ~^                                   ~~~~~~~~~
+      |                                 |                                   |
+      |                                 int                                 uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:423:60: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  423 |     sprintf(Text, "Frequency = %d Hz sum_current = %d C = %d pF\n", Frequency, sum_current, Capacity);
+      |                                                           ~^                                ~~~~~~~~
+      |                                                            |                                |
+      |                                                            int                              uint32_t {aka volatile long unsigned int}
+      |                                                           %ld
+../Core/Src/main.c:428:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  428 |      HAL_UART_Transmit(&huart2, Text, 40, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c:423:63: warning: ' pF
+   ' directive writing 4 bytes into a region of size between 0 and 2 [-Wformat-overflow=]
+  423 |     sprintf(Text, "Frequency = %d Hz sum_current = %d C = %d pF\n", Frequency, sum_current, Capacity);
+      |                                                             ~~^~~
+../Core/Src/main.c:423:5: note: 'sprintf' output between 43 and 65 bytes into a destination of size 40
+  423 |     sprintf(Text, "Frequency = %d Hz sum_current = %d C = %d pF\n", Frequency, sum_current, Capacity);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22480	    120	   1976	  24576	   6000	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+22:33:33 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:423:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  423 |     sprintf(Text, "Frequency = %d Hz %d C = %d pF\n", Frequency, sum_current, Capacity);
+      |     ^~~~~~~
+../Core/Src/main.c:423:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:423:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  423 |     sprintf(Text, "Frequency = %d Hz %d C = %d pF\n", Frequency, sum_current, Capacity);
+      |             ^~~~
+../Core/Src/main.c:423:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:423:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  423 |     sprintf(Text, "Frequency = %d Hz %d C = %d pF\n", Frequency, sum_current, Capacity);
+      |                                ~^                     ~~~~~~~~~
+      |                                 |                     |
+      |                                 int                   uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:423:46: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  423 |     sprintf(Text, "Frequency = %d Hz %d C = %d pF\n", Frequency, sum_current, Capacity);
+      |                                             ~^                                ~~~~~~~~
+      |                                              |                                |
+      |                                              int                              uint32_t {aka volatile long unsigned int}
+      |                                             %ld
+../Core/Src/main.c:428:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  428 |      HAL_UART_Transmit(&huart2, Text, 40, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22464	    120	   1976	  24560	   5ff0	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+22:45:32 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:424:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |     ^~~~~~~
+../Core/Src/main.c:424:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:424:74: error: 'note_musicale' undeclared (first use in this function); did you mean 'note_musical'?
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |                                                                          ^~~~~~~~~~~~~
+      |                                                                          note_musical
+../Core/Src/main.c:424:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:424:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |             ^~~~
+../Core/Src/main.c:424:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:429:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  429 |      HAL_UART_Transmit(&huart2, Text, 40, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:454:20: error: assignment to expression with array type
+  454 |       note_musical = "Null";
+      |                    ^
+../Core/Src/main.c:458:20: error: assignment to expression with array type
+  458 |       note_musical = "Re";
+      |                    ^
+../Core/Src/main.c:462:20: error: assignment to expression with array type
+  462 |       note_musical = "La";
+      |                    ^
+../Core/Src/main.c:466:20: error: assignment to expression with array type
+  466 |       note_musical = "Si";
+      |                    ^
+../Core/Src/main.c:470:20: error: assignment to expression with array type
+  470 |       note_musical = "Mi-g";
+      |                    ^
+../Core/Src/main.c:474:20: error: assignment to expression with array type
+  474 |       note_musical = "Mi-a";
+      |                    ^
+../Core/Src/main.c:478:20: error: assignment to expression with array type
+  478 |       note_musical = "Sol";
+      |                    ^
+../Core/Src/main.c:482:20: error: assignment to expression with array type
+  482 |       note_musical = "Null";
+      |                    ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:45:51 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:424:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |     ^~~~~~~
+../Core/Src/main.c:424:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:424:74: error: 'note_musicale' undeclared (first use in this function); did you mean 'note_musical'?
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |                                                                          ^~~~~~~~~~~~~
+      |                                                                          note_musical
+../Core/Src/main.c:424:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:424:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |             ^~~~
+../Core/Src/main.c:424:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:429:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  429 |      HAL_UART_Transmit(&huart2, Text, 40, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:454:20: error: assignment to expression with array type
+  454 |       note_musical = "Null";
+      |                    ^
+../Core/Src/main.c:458:20: error: assignment to expression with array type
+  458 |       note_musical = "Re";
+      |                    ^
+../Core/Src/main.c:462:20: error: assignment to expression with array type
+  462 |       note_musical = "La";
+      |                    ^
+../Core/Src/main.c:466:20: error: assignment to expression with array type
+  466 |       note_musical = "Si";
+      |                    ^
+../Core/Src/main.c:470:20: error: assignment to expression with array type
+  470 |       note_musical = "Mi-g";
+      |                    ^
+../Core/Src/main.c:474:20: error: assignment to expression with array type
+  474 |       note_musical = "Mi-a";
+      |                    ^
+../Core/Src/main.c:478:20: error: assignment to expression with array type
+  478 |       note_musical = "Sol";
+      |                    ^
+../Core/Src/main.c:482:20: error: assignment to expression with array type
+  482 |       note_musical = "Null";
+      |                    ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:46:15 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:424:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |     ^~~~~~~
+../Core/Src/main.c:424:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:424:74: error: 'note_musicale' undeclared (first use in this function); did you mean 'note_musical'?
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |                                                                          ^~~~~~~~~~~~~
+      |                                                                          note_musical
+../Core/Src/main.c:424:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:424:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |             ^~~~
+../Core/Src/main.c:424:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:429:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  429 |      HAL_UART_Transmit(&huart2, Text, 40, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:454:20: error: assignment to expression with array type
+  454 |       note_musical = "Null";
+      |                    ^
+../Core/Src/main.c:458:20: error: assignment to expression with array type
+  458 |       note_musical = "Re";
+      |                    ^
+../Core/Src/main.c:462:20: error: assignment to expression with array type
+  462 |       note_musical = "La";
+      |                    ^
+../Core/Src/main.c:466:20: error: assignment to expression with array type
+  466 |       note_musical = "Si";
+      |                    ^
+../Core/Src/main.c:470:20: error: assignment to expression with array type
+  470 |       note_musical = "Mi-g";
+      |                    ^
+../Core/Src/main.c:474:20: error: assignment to expression with array type
+  474 |       note_musical = "Mi-a";
+      |                    ^
+../Core/Src/main.c:478:20: error: assignment to expression with array type
+  478 |       note_musical = "Sol";
+      |                    ^
+../Core/Src/main.c:482:20: error: assignment to expression with array type
+  482 |       note_musical = "Null";
+      |                    ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:46:24 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:424:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |     ^~~~~~~
+../Core/Src/main.c:424:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:424:74: error: 'note_musicale' undeclared (first use in this function); did you mean 'note_musical'?
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |                                                                          ^~~~~~~~~~~~~
+      |                                                                          note_musical
+../Core/Src/main.c:424:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:424:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |             ^~~~
+../Core/Src/main.c:424:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:429:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  429 |      HAL_UART_Transmit(&huart2, Text, 40, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:454:20: error: assignment to expression with array type
+  454 |       note_musical = "Null";
+      |                    ^
+../Core/Src/main.c:458:20: error: assignment to expression with array type
+  458 |       note_musical = "Re";
+      |                    ^
+../Core/Src/main.c:462:20: error: assignment to expression with array type
+  462 |       note_musical = "La";
+      |                    ^
+../Core/Src/main.c:466:20: error: assignment to expression with array type
+  466 |       note_musical = "Si";
+      |                    ^
+../Core/Src/main.c:470:20: error: assignment to expression with array type
+  470 |       note_musical = "Mi-g";
+      |                    ^
+../Core/Src/main.c:474:20: error: assignment to expression with array type
+  474 |       note_musical = "Mi-a";
+      |                    ^
+../Core/Src/main.c:478:20: error: assignment to expression with array type
+  478 |       note_musical = "Sol";
+      |                    ^
+../Core/Src/main.c:482:20: error: assignment to expression with array type
+  482 |       note_musical = "Null";
+      |                    ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:46:32 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:424:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |     ^~~~~~~
+../Core/Src/main.c:424:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:424:74: error: 'note_musicale' undeclared (first use in this function); did you mean 'note_musical'?
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |                                                                          ^~~~~~~~~~~~~
+      |                                                                          note_musical
+../Core/Src/main.c:424:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:424:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |             ^~~~
+../Core/Src/main.c:424:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:429:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  429 |      HAL_UART_Transmit(&huart2, Text, 40, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:454:20: error: assignment to expression with array type
+  454 |       note_musical = "Null";
+      |                    ^
+../Core/Src/main.c:458:20: error: assignment to expression with array type
+  458 |       note_musical = "Re";
+      |                    ^
+../Core/Src/main.c:462:20: error: assignment to expression with array type
+  462 |       note_musical = "La";
+      |                    ^
+../Core/Src/main.c:466:20: error: assignment to expression with array type
+  466 |       note_musical = "Si";
+      |                    ^
+../Core/Src/main.c:470:20: error: assignment to expression with array type
+  470 |       note_musical = "Mi-g";
+      |                    ^
+../Core/Src/main.c:474:20: error: assignment to expression with array type
+  474 |       note_musical = "Mi-a";
+      |                    ^
+../Core/Src/main.c:478:20: error: assignment to expression with array type
+  478 |       note_musical = "Sol";
+      |                    ^
+../Core/Src/main.c:482:20: error: assignment to expression with array type
+  482 |       note_musical = "Null";
+      |                    ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:49:13 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:424:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |     ^~~~~~~
+../Core/Src/main.c:424:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:424:74: error: 'note_musicale' undeclared (first use in this function); did you mean 'note_musical'?
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |                                                                          ^~~~~~~~~~~~~
+      |                                                                          note_musical
+../Core/Src/main.c:424:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:424:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musicale);
+      |             ^~~~
+../Core/Src/main.c:424:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:429:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  429 |      HAL_UART_Transmit(&huart2, Text, 40, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:454:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  454 |       strcpy(note_musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:454:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:49:40 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:424:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musical);
+      |     ^~~~~~~
+../Core/Src/main.c:424:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:424:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musical);
+      |             ^~~~
+../Core/Src/main.c:424:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:424:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musical);
+      |                                ~^                             ~~~~~~~~~
+      |                                 |                             |
+      |                                 int                           uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:429:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  429 |      HAL_UART_Transmit(&huart2, Text, 40, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:454:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  454 |       strcpy(note_musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:454:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:454:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  454 |       strcpy(note_musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:470:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  470 |       strcpy(note_musical, "Mi-g");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:474:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  474 |       strcpy(note_musical, "Mi-a");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:482:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  482 |       strcpy(note_musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22636	    120	   1976	  24732	   609c	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+22:50:44 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:424:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musical);
+      |     ^~~~~~~
+../Core/Src/main.c:424:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:424:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musical);
+      |             ^~~~
+../Core/Src/main.c:424:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:424:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  424 |     sprintf(Text, "Frequency = %d Hz - note musicale = %s\n", Frequency, note_musical);
+      |                                ~^                             ~~~~~~~~~
+      |                                 |                             |
+      |                                 int                           uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:429:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  429 |      HAL_UART_Transmit(&huart2, Text, 50, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:454:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  454 |       strcpy(note_musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:454:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:454:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  454 |       strcpy(note_musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:470:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  470 |       strcpy(note_musical, "Mi-g");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:474:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  474 |       strcpy(note_musical, "Mi-a");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:482:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  482 |       strcpy(note_musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22636	    120	   1992	  24748	   60ac	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+23:03:19 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:64:1: error: unknown type name 'bool'
+   64 | bool Turn_On;
+      | ^~~~
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:425:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %d - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |     ^~~~~~~
+../Core/Src/main.c:425:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:425:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %d - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |             ^~~~
+../Core/Src/main.c:425:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:425:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %d - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |                                ~^                                        ~~~~~~~~~
+      |                                 |                                        |
+      |                                 int                                      uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:430:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  430 |      HAL_UART_Transmit(&huart2, Text, 60, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:455:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:13: error: 'true' undeclared (first use in this function)
+  492 |   Turn_On = true;
+      |             ^~~~
+../Core/Src/main.c:492:13: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:506:13: error: 'false' undeclared (first use in this function)
+  506 |   Turn_On = false;
+      |             ^~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+23:04:52 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:425:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |     ^~~~~~~
+../Core/Src/main.c:425:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:425:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |             ^~~~
+../Core/Src/main.c:425:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:425:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |                                ~^                                        ~~~~~~~~~
+      |                                 |                                        |
+      |                                 int                                      uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:430:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  430 |      HAL_UART_Transmit(&huart2, Text, 60, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:455:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~
+../Core/Src/main.c:492:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c:506:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  506 |   strcpy(Turn_On, "No");
+      |   ^~~~~~
+../Core/Src/main.c:506:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:471:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  471 |       strcpy(Note_Musical, "Mi-g");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:475:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  475 |       strcpy(Note_Musical, "Mi-a");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:483:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  483 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: '__builtin_memcpy' writing 4 bytes into a region of size 3 overflows the destination [-Wstringop-overflow=]
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22700	    120	   2000	  24820	   60f4	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+23:07:32 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:425:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |     ^~~~~~~
+../Core/Src/main.c:425:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:425:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |             ^~~~
+../Core/Src/main.c:425:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:425:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |                                ~^                                        ~~~~~~~~~
+      |                                 |                                        |
+      |                                 int                                      uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:430:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  430 |      HAL_UART_Transmit(&huart2, Text, 55, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:455:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~
+../Core/Src/main.c:492:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c:506:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  506 |   strcpy(Turn_On, "No");
+      |   ^~~~~~
+../Core/Src/main.c:506:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:471:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  471 |       strcpy(Note_Musical, "Mi-g");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:475:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  475 |       strcpy(Note_Musical, "Mi-a");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:483:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  483 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: '__builtin_memcpy' writing 4 bytes into a region of size 3 overflows the destination [-Wstringop-overflow=]
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22700	    120	   2000	  24820	   60f4	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+23:08:09 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:425:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |     ^~~~~~~
+../Core/Src/main.c:425:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:425:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |             ^~~~
+../Core/Src/main.c:425:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:425:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |                                ~^                                        ~~~~~~~~~
+      |                                 |                                        |
+      |                                 int                                      uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:430:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  430 |      HAL_UART_Transmit(&huart2, Text, 56, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:455:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~
+../Core/Src/main.c:492:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c:506:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  506 |   strcpy(Turn_On, "No");
+      |   ^~~~~~
+../Core/Src/main.c:506:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:471:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  471 |       strcpy(Note_Musical, "Mi-g");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:475:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  475 |       strcpy(Note_Musical, "Mi-a");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:483:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  483 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: '__builtin_memcpy' writing 4 bytes into a region of size 3 overflows the destination [-Wstringop-overflow=]
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22700	    120	   2000	  24820	   60f4	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+23:08:50 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:425:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |     ^~~~~~~
+../Core/Src/main.c:425:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:425:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |             ^~~~
+../Core/Src/main.c:425:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:425:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |                                ~^                                        ~~~~~~~~~
+      |                                 |                                        |
+      |                                 int                                      uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:430:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  430 |      HAL_UART_Transmit(&huart2, Text, 60, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:455:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~
+../Core/Src/main.c:492:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c:506:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  506 |   strcpy(Turn_On, "No");
+      |   ^~~~~~
+../Core/Src/main.c:506:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:471:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  471 |       strcpy(Note_Musical, "Mi-g");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:475:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  475 |       strcpy(Note_Musical, "Mi-a");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:483:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  483 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: '__builtin_memcpy' writing 4 bytes into a region of size 3 overflows the destination [-Wstringop-overflow=]
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22700	    120	   2000	  24820	   60f4	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+23:11:04 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:425:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |     ^~~~~~~
+../Core/Src/main.c:425:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:425:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |             ^~~~
+../Core/Src/main.c:425:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:425:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  425 |     sprintf(Text, "Frequency = %d Hz - Turn = %s - Note Musical = %s\n", Frequency, Turn_On, Note_Musical);
+      |                                ~^                                        ~~~~~~~~~
+      |                                 |                                        |
+      |                                 int                                      uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:430:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  430 |      HAL_UART_Transmit(&huart2, Text, 55, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:455:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~
+../Core/Src/main.c:492:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c:506:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  506 |   strcpy(Turn_On, "No");
+      |   ^~~~~~
+../Core/Src/main.c:506:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:471:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  471 |       strcpy(Note_Musical, "Mi-g");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:475:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  475 |       strcpy(Note_Musical, "Mi-a");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:483:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  483 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: '__builtin_memcpy' writing 4 bytes into a region of size 3 overflows the destination [-Wstringop-overflow=]
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22700	    120	   2000	  24820	   60f4	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+23:12:41 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:425:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  425 |     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
+      |     ^~~~~~~
+../Core/Src/main.c:425:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:425:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  425 |     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
+      |             ^~~~
+../Core/Src/main.c:425:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:425:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  425 |     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
+      |                                ~^                            ~~~~~~~~~
+      |                                 |                            |
+      |                                 int                          uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:430:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  430 |      HAL_UART_Transmit(&huart2, Text, 60, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:455:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~
+../Core/Src/main.c:492:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c:506:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  506 |   strcpy(Turn_On, "No");
+      |   ^~~~~~
+../Core/Src/main.c:506:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:471:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  471 |       strcpy(Note_Musical, "Mi-g");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:475:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  475 |       strcpy(Note_Musical, "Mi-a");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:483:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  483 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: '__builtin_memcpy' writing 4 bytes into a region of size 3 overflows the destination [-Wstringop-overflow=]
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22680	    120	   2000	  24800	   60e0	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+23:13:37 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:425:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  425 |     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
+      |     ^~~~~~~
+../Core/Src/main.c:425:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:425:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  425 |     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
+      |             ^~~~
+../Core/Src/main.c:425:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:425:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  425 |     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
+      |                                ~^                            ~~~~~~~~~
+      |                                 |                            |
+      |                                 int                          uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:430:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  430 |      HAL_UART_Transmit(&huart2, Text, 60, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:455:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:455:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:471:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  471 |       strcpy(Note_Musical, "Mi-g");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:475:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  475 |       strcpy(Note_Musical, "Mi-a");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:483:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  483 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22636	    120	   2000	  24756	   60b4	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+23:14:32 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:425:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  425 |     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
+      |     ^~~~~~~
+../Core/Src/main.c:425:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:425:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  425 |     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
+      |             ^~~~
+../Core/Src/main.c:425:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:425:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  425 |     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
+      |                                ~^                            ~~~~~~~~~
+      |                                 |                            |
+      |                                 int                          uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:430:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  430 |      HAL_UART_Transmit(&huart2, Text, 60, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:455:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~
+../Core/Src/main.c:492:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:455:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  455 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:471:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  471 |       strcpy(Note_Musical, "Mi-g");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:475:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  475 |       strcpy(Note_Musical, "Mi-a");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:483:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  483 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'Check_Frequency':
+../Core/Src/main.c:492:3: warning: '__builtin_memcpy' writing 4 bytes into a region of size 3 overflows the destination [-Wstringop-overflow=]
+  492 |   strcpy(Turn_On, "Yes");
+      |   ^~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22656	    120	   2000	  24776	   60c8	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+23:15:45 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F301x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:424:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  424 |     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
+      |     ^~~~~~~
+../Core/Src/main.c:424:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:424:13: warning: passing argument 1 of 'sprintf' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  424 |     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
+      |             ^~~~
+../Core/Src/main.c:424:13: note: expected 'char *' but argument is of type 'volatile char *'
+../Core/Src/main.c:424:33: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  424 |     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
+      |                                ~^                            ~~~~~~~~~
+      |                                 |                            |
+      |                                 int                          uint32_t {aka volatile long unsigned int}
+      |                                %ld
+../Core/Src/main.c:429:33: warning: passing argument 2 of 'HAL_UART_Transmit' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  429 |      HAL_UART_Transmit(&huart2, Text, 60, 1000);
+      |                                 ^~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1464:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
+ 1464 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'Config_PWM':
+../Core/Src/main.c:454:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+  454 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~
+../Core/Src/main.c:454:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:454:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  454 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:470:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  470 |       strcpy(Note_Musical, "Mi-g");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:474:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  474 |       strcpy(Note_Musical, "Mi-a");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:482:7: warning: '__builtin_memcpy' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+  482 |       strcpy(Note_Musical, "Null");
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mario\Downloads\PP\PP\STM32F301K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PP.elf
+ 
+arm-none-eabi-size   PP.elf 
+arm-none-eabi-objdump -h -S  PP.elf  > "PP.list"
+   text	   data	    bss	    dec	    hex	filename
+  22636	    120	   2000	  24756	   60b4	PP.elf
+Finished building: default.size.stdout
+ 
+Finished building: PP.list
+ 
+23:23:09 **** Incremental Build of configuration Debug for project PP ****
+make -j12 all 
+arm-none-eabi-size   PP.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22636	    120	   2000	  24756	   60b4	PP.elf
+Finished building: default.size.stdout
+ 

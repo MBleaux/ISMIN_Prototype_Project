@@ -4,5 +4,6 @@ Freq_Timer1
 Input_Pin_1
 Input_Pin_2
 Input_Pin_3
-sum_current
-sum_before
+Sum_Current
+Sum_Before
+Text

@@ -288,3 +288,41 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Mario\Downloa
 
 !ENTRY org.eclipse.cdt.core 1 0 2023-03-25 21:03:34.566
 !MESSAGE Indexed 'PP' (23 sources, 113 headers) in 2,8 sec: 11 277 declarations; 66 538 references; 2 unresolved inclusions; 49 syntax errors; 188 unresolved names (0,24 %)
+!SESSION 2023-03-29 19:55:07.023 -----------------------------------------------
+eclipse.buildId=Version 1.11.0
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Framework arguments:  C:\Users\Mario\Downloads\PP\PP\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Mario\Downloads\PP\PP\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-03-29 19:55:20.731
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-03-29 19:55:20.802
+!MESSAGE Log4j initialized with config file C:\Users\Mario\Downloads\PP\Eu\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-03-29 19:55:27.358
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-03-29 19:55:30.767
+!MESSAGE Indexed 'PP' (23 sources, 113 headers) in 3,07 sec: 11 277 declarations; 66 546 references; 2 unresolved inclusions; 49 syntax errors; 188 unresolved names (0,24 %)
+!SESSION 2023-03-29 21:23:37.258 -----------------------------------------------
+eclipse.buildId=Version 1.11.0
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Framework arguments:  C:\Users\Mario\Downloads\PP\PP\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Mario\Downloads\PP\PP\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-03-29 21:23:51.567
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-03-29 21:23:51.615
+!MESSAGE Log4j initialized with config file C:\Users\Mario\Downloads\PP\Eu\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-03-29 21:23:56.514
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-03-29 21:23:59.118
+!MESSAGE Indexed 'PP' (23 sources, 113 headers) in 2,25 sec: 11 277 declarations; 66 546 references; 2 unresolved inclusions; 49 syntax errors; 188 unresolved names (0,24 %)
