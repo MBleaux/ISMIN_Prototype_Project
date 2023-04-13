@@ -126,13 +126,13 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-	// Verificar os valores de entrada dos pinos PB 1, 6 e 7
+	// Check the input values of pins PB 1, 6 and 7
 	Check_Pin();
 
-	// Verifica a combinação dos pinos PB 1, 6 e 7
+	// Checks the combination of pins PB 1, 6 and 7
 	Config_PWM();
 
-    // Verifica o valor da variável Frequency_Local
+  // Checks the value of the variable Frequency_Local
 	Check_Frequency();
 
   }
@@ -204,8 +204,8 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE BEGIN TIM1_Init 1 */
 
-  /* - Período do sinal PWM (T_pwm) = 1 / f_pwm
-   * - Para obter uma frequência de 20kHz -> f_base = f_clk / (PSC + 1)
+  /* - PWM signal period (T_pwm) = 1 / f_pwm
+   * - To obtain a frequency of 20kHz -> f_base = f_clk / (PSC + 1)
    *   -> f_base = 20 kHz = 64 MHz / (PSC + 1) => PSC = (64 MHz / 20 kHz) - 1 = 3199
    * - PWM (ARR) = (T_pwm * f_base) - 1 ----- htim1.Init.Period = Freq_Timer1;
    * - CCR4 = ARR / 2                   ----- sConfigOC.Pulse = (htim1.Init.Period+1)/2; */
@@ -405,11 +405,11 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim){
-  /* Captura de tempo quando há uma borda de subida */
+  /* Time capture when there is a Rising Edge */
   sample[Ind]=(uint32_t) HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
   Ind++;
 
-  /* Processamento dos dados para calcular a frequência */
+  /* Processing the data to calculate frequency */
   if (Ind == 5){
     Ind = 0;
     DeltaT = sample[4] + Overflow*4294967295 - sample[0];
@@ -417,13 +417,13 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim){
     Frequency = 4*64000000/((htim->Init.Prescaler + 1)*DeltaT);
     Capacity = 1000000/Frequency;
 
-    /* Tipo Volatile não pode ser usado na função main(), pois o tipo volatile não garante a estabilidade da variável "Frequency" */
+    /* Volatile type cannot be used in the main() function, because the volatile type does not guarantee the stability of the "Frequency" variable */
     Frequency_Local = Frequency;
 
-    /* Formatação dos espaços de exibição */
+    /* Formatting of the display spaces */
     sprintf(Text, "Frequency = %d Hz - Note Musical = %s\n", Frequency, Note_Musical);
 
-    /* Display com uma velocidade 30 vezes menor para a legibilidade */
+    /* Display with a speed 30 times less for readability */
     if(Show++ == 30){
       Show = 0;
 	    HAL_UART_Transmit(&huart2, Text, 60, 1000);
@@ -437,17 +437,17 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 /* USER CODE END 4 */
 
 void Check_Pin(void) {
-	/* Leitura dos pinos e atribuição de valores às variáveis */
+	/* Reading the pins and assigning values to variables */
 	Input_Pin_1 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1) == GPIO_PIN_SET ? 1 : 0;
 	Input_Pin_2 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6) == GPIO_PIN_SET ? 1 : 0;
 	Input_Pin_3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_SET ? 1 : 0;
 
-	/* Calcula a combinação presente nos pinos */
+	/* Calculates the combination present on the pins */
 	Sum_Current = (Input_Pin_1 << 2) | (Input_Pin_2 << 1) | Input_Pin_3;
 }
 
 void Config_PWM(void) {
-	/* A partir do valor somado em combinação, será gerado uma frequência para a nota musical */
+	/* From the value added in combination, a frequency for the musical note will be generated */
 	switch (Sum_Current) {
 	    case 0:
 	    	Freq_Timer1 = 0;    // Nulo
@@ -484,27 +484,27 @@ void Config_PWM(void) {
 }
 
 void Check_Frequency(void) {
-	/* Verifica se a frequência é menor do que 42kHz, ou seja, se há a presença da mão. Além disso, verifica se Freq_Timer1 é diferente de zero para emitir um som */
+	/* Checks if the frequency is lower than 42kHz, that is, if there is the presence of the hand. In addition, it checks that Freq_Timer1 is non-zero to emit a sound */
 	if (Frequency_Local < 42000 && Sum_Current != 0 && Freq_Timer1 != 0) {
 
-		/* Verifica o estado anterior para saber se a mesma nota musical está sendo requisitada */
+		/* Checks the previous state to see if the same musical note is being requested */
 		if(Sum_Current != Sum_Before){
 			Sum_Before = Sum_Current;
 
-			/* Alteração da frequência do PWM */
+			/* PWM frequency change */
 			MX_TIM1_Init();
 		}
 	}
 	else {
-		/* Frequência nula */
+		/* Null frequency */
 		Freq_Timer1 = 0;
 		Sum_Before = 0;
 
-		/* Alteração da frequência do PWM */
+		/* PWM frequency change */
 		MX_TIM1_Init();
 	}
 
-	/* Aguarda um tempo (em milisegundos) para realizar o próximo ciclo */
+	/* Waits a time (in milliseconds) to execute the next cycle */
 	HAL_Delay(100);
 }
 
