@@ -1,0 +1,12 @@
+../Core/Src/main.c:88:5:main	8	static
+../Core/Src/main.c:146:6:SystemClock_Config	120	static
+../Core/Src/main.c:193:13:MX_TIM1_Init	112	static
+../Core/Src/main.c:278:13:MX_TIM2_Init	56	static
+../Core/Src/main.c:336:13:MX_USART2_UART_Init	8	static
+../Core/Src/main.c:371:13:MX_GPIO_Init	40	static
+../Core/Src/main.c:407:6:HAL_TIM_IC_CaptureCallback	24	static
+../Core/Src/main.c:434:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main.c:439:6:Check_Pin	8	static
+../Core/Src/main.c:449:6:Config_PWM	4	static
+../Core/Src/main.c:486:6:Check_Frequency	8	static
+../Core/Src/main.c:515:6:Error_Handler	4	static
