@@ -1,12 +1,33 @@
-# ISMIN_Prototype_Project_-_Air_Guitar
-This project is the development of a prototype of an Air Guitar. This project was developed during the prototyping discipline of the microelectronics and informatics course at the École des Mines de Saint-Etienne - ISMIN.
+# ISMIN Prototype Project – Air Guitar 🎸
 
-The STM32F301K8T6 microcontroller was used to capture the frequency coming from the conditioning circuit to output a PWM frequency which corresponds to a musical note based on buttons pressed in order to simulate a guitar.
+This project is a prototype of an **Air Guitar**, developed as part of the *Prototyping Project* in the **Microelectronics and Computer Science** program at the **École des Mines de Saint-Étienne – ISMIN**.
 
-In this project, Timers 1 and 2 were configured for reading and generating frequencies, UART for serial communication, and GPIO pin configuration.
+## 🛠️ Overview
 
-The code contains the following functions:
-* HAL_TIM_IC_CaptureCallback to capture the frequency of an external circuit which contains a metal plate
-* Check_Frequency to indicate if the captured frequency is below a certain frequency (in this project: 42kHz) which indicates if the hand, or some body, is close to the metal plate or not
-* Check_Pin to detect which buttons are pressed
-* Config_PWM to produce a PWM output frequency from the keys pressed in Check_Pin
+The system uses an **STM32F301K8T6** microcontroller to simulate a guitar. It captures the frequency of a conditioning circuit connected to a metal plate and outputs a **PWM signal** corresponding to a musical note, depending on which buttons are pressed — effectively mimicking the action of "strumming" and "fretting" a guitar string.
+
+### 🧩 Main Components:
+- **Timers 1 and 2**: used for frequency capture and PWM generation
+- **UART**: for serial communication (e.g., debugging, monitoring)
+- **GPIOs**: for reading input from buttons and controlling outputs
+
+## ⚙️ Functional Description
+
+The embedded code implements the following main features:
+
+- `HAL_TIM_IC_CaptureCallback`:  
+  Callback function used to **capture the input frequency** from the metal plate via the conditioning circuit.
+
+- `Check_Frequency`:  
+  Determines whether the captured frequency is **below 42kHz**, indicating the **presence of a hand or body** near the metal plate.
+
+- `Check_Pin`:  
+  Reads the **state of input buttons**, simulating different frets or chords on a guitar neck.
+
+- `Config_PWM`:  
+  Configures and generates a **PWM output signal** with a frequency corresponding to the selected musical note.
+
+## 📁 Project Structure
+
+- **`PP`**: Prototyping Project codes
+- **`Rapport-ProjetPrototypage.pdf`**: documentation of the project
